@@ -1,0 +1,211 @@
+Q1]
+#!/bin/bash
+
+echo -n " enter a no. "
+
+read n
+
+for i in $(seq 1 $n)
+
+do
+ 
+[ $(expr $n / $i \* $i) == $n ] && echo $i
+
+done 
+
+//ANSWER:
+
+[unipro@centosvm dac39shellscript]$ vi 1.sh
+[unipro@centosvm dac39shellscript]$ sh 1.sh
+ enter a no. 36
+1
+2
+3
+4
+6
+9
+12
+18
+36
+==========================================================================================
+Q2]
+a)
+#! /bin/bash
+
+
+echo -e "Enter the name of the file : \c"
+
+read file_name
+
+
+if [ -f $file_name ]
+
+then
+
+   echo "$file_name exists"
+
+else
+ 
+ echo "$file_name not exists"
+
+fi
+
+
+//ANSWER
+
+[unipro@centosvm dac39shellscript]$ vi 2a.sh
+[unipro@centosvm dac39shellscript]$ sh 2a.sh
+Enter the name of the file : ab.cpp
+ab.cpp not exists
+
+==============================================================================================
+Q2]
+c)
+
+  #!/bin/bash
+
+echo "enter maximum number"
+
+read n
+
+# taking input from user
+
+echo "enter  Numbers in array:"
+
+for (( i = 0; i < $n; i++ ))
+
+do
+
+read nos[$i]
+
+done
+
+
+#printing the number before sorting
+
+echo "  Numbers in an array are:"
+
+for (( i = 0; i < $n; i++ ))
+
+do
+
+echo ${nos[$i]}
+
+done
+
+# Now do the Sorting of numbers
+
+for (( i = 0; i < $n ; i++ ))
+
+do
+
+for (( j = $i; j < $n; j++ ))
+
+do
+
+if [ ${nos[$i]} -lt ${nos[$j]}  ];
+ then
+
+t=${nos[$i]}
+nos[$i]=${nos[$j]}
+
+nos[$j]=$t
+
+fi
+
+done
+
+# Printing the sorted number in descending order
+
+echo -e "\nSorted Numbers "
+
+for (( i=0; i > $n; --i ))
+
+do
+
+echo ${nos[$i]}
+
+//ANSWER
+
+
+[unipro@centosvm dac39shellscript]$ vi 2c.sh
+[unipro@centosvm dac39shellscript]$ sh 2c.sh
+enter maximum number
+5
+enter  Numbers in array:
+4
+8
+6
+3
+2
+  Numbers in an array are:
+8
+6
+4
+3
+2
+
+=======================================================================================
+
+d)
+
+#!/bin/bash
+
+	
+if [ $# != 0 ];
+ then
+
+len=`echo $@ | wc -c`
+
+len=`expr $len - 1`
+
+strrev=""
+
+while test $len -gt 0
+		
+do
+			
+strrev1=`echo $@ | cut -c$len`
+			
+strrev=$strrev$strrev1
+			
+len=`expr $len - 1`
+		
+done
+		
+echo $strrev
+	
+else
+		
+echo "ERROR: Retry with a list of strings."
+	
+fi
+
+//ANSWER
+
+[unipro@centosvm dac39shellscript]$ vi 2dd.sh
+[unipro@centosvm dac39shellscript]$ sh 2dd.sh abcde
+edcba
+==================================================================================
+e)cat /etc/centos/-release
+  ls -al
+
+//ANSWER
+
+[unipro@centosvm dac39shellscript]$ vi e.sh
+[unipro@centosvm dac39shellscript]$ sh e.sh
+cat: /etc/centos/-release: No such file or directory
+total 32
+drwxrwxr-x  2 unipro unipro 4096 Oct 23 12:40 .
+drwxrwxrwx 22 root   root   4096 Oct 23 11:36 ..
+-rw-rw-r--  1 unipro unipro  123 Oct 23 11:44 1.sh
+-rw-rw-r--  1 unipro unipro  173 Oct 23 11:45 2a.sh
+-rw-rw-r--  1 unipro unipro  622 Oct 23 12:27 2c.sh
+-rw-rw-r--  1 unipro unipro  287 Oct 23 12:31 2dd.sh
+-rw-rw-r--  1 unipro unipro  623 Oct 23 12:25 2d.sh
+-rw-rw-r--  1 unipro unipro    0 Oct 23 11:44 2e.sh
+-rw-rw-r--  1 unipro unipro    0 Oct 23 12:11 a.out
+-rw-rw-r--  1 unipro unipro   34 Oct 23 12:40 e.sh
+
+======================================================================================
+

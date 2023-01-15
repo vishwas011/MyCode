@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>ClassicWebApp</title>
+</head>
+
+<body>
+    <h1>Courses Details</h1>
+    <table border="1">
+        <tr>
+            <th>Course Id</th>
+            <th>Course Name</th>
+
+        </tr>
+        @foreach (var entry in ViewBag.Course)
+        {
+            <tr>
+                <td>@entry.Id</td>
+                <td>@entry.CourseName</td>
+            </tr>
+        }
+
+    </table>
+
+     <p>
+            <form method="post" action="/Student/Detail">
+                <b>Please Enter Id:</b>
+                <input type="text" name="Cid" required="required"/>
+                <input type="submit" value="Enter"/>
+            </form>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+.row{
+    display: flex;
+}
+.col-xl-6{
+    width: 50%;
+}
